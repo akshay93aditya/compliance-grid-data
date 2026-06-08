@@ -37,17 +37,19 @@ For one-off corrections (typo in an instrument title, broken citation, mis-categ
 
 ## Fork-PR flow (external contributors)
 
-Until the main repo's `cg publish` learns native fork-PR support, this is the path:
+If you don't have push access to this repo, publish via fork:
 
 1. **Fork** this repo on GitHub.
-2. Point your publish env at your fork:
+2. **Sync your fork's `main`** with upstream before publishing (so the PR diff is clean):
+   ```bash
+   gh repo sync <your-handle>/compliance-grid-data
+   ```
+3. Set two env vars — `REMOTE` is where you push (your fork), `UPSTREAM` is where the PR lands (the canonical repo):
    ```bash
    export COMPLIANCE_GRID_DATA_REMOTE=git@github.com:<your-handle>/compliance-grid-data.git
+   export COMPLIANCE_GRID_DATA_UPSTREAM=akshay93aditya/compliance-grid-data
    ```
-3. Run `cg publish` — it'll open a PR in your fork (against your fork's `main`).
-4. Manually open a PR from your fork's branch to upstream's `main` via the GitHub UI.
-
-Yes, this is awkward. It's tracked: <https://github.com/akshay93aditya/compliance-grid/issues> (look for the publish.ts fork-PR issue).
+4. Run `npm run publish` from the main `compliance-grid` repo. It pushes to your fork and opens a cross-repo PR against upstream automatically (`--head <your-handle>:<branch>`).
 
 ## File layout
 
