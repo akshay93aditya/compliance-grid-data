@@ -40,6 +40,10 @@ One row per line. Field shapes match the canonical Zod schemas in the main repo'
 
 See `docs/specs/08-federation.md` in the main repo for the full protocol.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). TL;DR: most contributions land here through `cg publish` in the [main repo](https://github.com/akshay93aditya/compliance-grid). Hand-authored PRs are also welcome — read the contribution doc for the file shape and validation requirements.
+
 ## License
 
-MIT. The same as the main repo. Data here is open data.
+[CC0-1.0](LICENSE). The data here is public-domain dedicated, so any operator can pull it into any system without an attribution requirement. The main repo's MIT-licensed code is the agreed reference for the row shapes.
