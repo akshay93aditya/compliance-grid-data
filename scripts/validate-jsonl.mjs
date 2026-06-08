@@ -21,10 +21,13 @@ const ROOT = process.argv[2] ?? '.';
 const errors = [];
 const stats = { files: 0, rows: 0 };
 
+// Required fields per the on-disk publish payload (flat row, mirrors DB
+// columns). The pull-side reconstructs the nested instrument_ref from
+// instrument_id + section, so we validate the flat shape here.
 const REQUIRED = {
   'sources.jsonl': ['id', 'jurisdiction', 'domain', 'url', 'fetch_recipe', 'trust_tier', 'last_seen', 'content_hash'],
   'instruments.jsonl': ['id', 'type', 'title', 'jurisdiction', 'citation'],
-  'obligations.jsonl': ['canonical_id', 'instrument_ref', 'type', 'summary', 'applicability_conditions', 'frequency', 'deadline_rule', 'proof_types', 'penalty', 'source_refs', 'version', 'confidence'],
+  'obligations.jsonl': ['canonical_id', 'instrument_id', 'type', 'summary', 'applicability_conditions', 'frequency', 'deadline_rule', 'proof_types', 'penalty', 'source_refs', 'version', 'confidence'],
 };
 const ID_FIELD = {
   'sources.jsonl': 'id',
