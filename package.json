@@ -1,0 +1,11 @@
+{
+  "name": "compliance-grid-data",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Federated CKG Commons for Compliance Grid",
+  "license": "CC0-1.0",
+  "scripts": {
+    "validate": "node scripts/validate-jsonl.mjs ."
+  },
+  "type": "module"
+}
